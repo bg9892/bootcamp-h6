@@ -1,11 +1,17 @@
 function generateMarkdown(data, inquirerArray) {
+  let badge;
+  if (data.email === null) {
+    badge = `[![Generic badge](https://img.shields.io/badge/Contact_at-<email_not_provided>-<COLOR>.svg)](https://shields.io/)`
+  } else {
+    badge = `[![Generic badge](https://img.shields.io/badge/Contact_at-${data.email}-<COLOR>.svg)](https://shields.io/)`
+  }
   return `
 # ${inquirerArray.title}
 ## Created by: ${data.login}
 
 <img src="${data.avatar_url}" height="150px" />
 
-[![Generic badge](https://img.shields.io/badge/Contact_at-${data.email}-<COLOR>.svg)](https://shields.io/)
+${badge}
 ## Index
 1. [Description](#description)
 2. [Installation](#installation)
@@ -13,7 +19,7 @@ function generateMarkdown(data, inquirerArray) {
 4. [License](#license)
 5. [Contribuitng](#contributing)
 6. [Tests](#tests)
-7. [Questions] (#tests)
+7. [Questions](#questions)
 <a name="description"></a>
 ### Description
 ${inquirerArray.description}
