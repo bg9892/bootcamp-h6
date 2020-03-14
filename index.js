@@ -40,13 +40,24 @@ const questions = [
         type: 'input',
         name: 'contributing',
         message: 'What does the user need to know about contributing to the repo'
-    }
+    },
+    {
+        type: 'input',
+        name: 'tests',
+        message: 'What tests are used?'
+    },
+    {
+        type: 'input',
+        name: 'questions',
+        message: 'Add any questions'
+    },
+
 ];
 
 function init() {
     inquirer.prompt(questions).then(function (response) {
-        const { username, title, description, license, installation, usage, contributing } = response;
-        const inquirerArray = { username, title, description, license, installation, usage, contributing };
+        const { username, title, description, license, installation, usage, contributing, tests, questions } = response;
+        const inquirerArray = { username, title, description, license, installation, usage, contributing, tests, questions };
         const queryUrl = `https://api.github.com/users/${username}`;
 
         axios
