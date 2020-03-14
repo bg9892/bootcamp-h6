@@ -10,8 +10,6 @@
 3. [Usage](#usage)
 4. [License](#license)
 5. [Contribuitng](#contributing)
-6. [Tests](#tests)
-7. [FAQ](#questions)
 <a name="description"></a>
 ### Description
 This creates a README for the user via a series of questions and answers in the terminal.
