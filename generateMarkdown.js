@@ -11,8 +11,6 @@ function generateMarkdown(data, inquirerArray) {
 3. [Usage](#usage)
 4. [License](#license)
 5. [Contribuitng](#contributing)
-6. [Tests](#tests)
-7. [FAQ](#questions)
 <a name="description"></a>
 ### Description
 ${inquirerArray.description}
