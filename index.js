@@ -3,6 +3,7 @@ const inquirer = require("inquirer");
 const axios = require("axios");
 const generateMarkdown = require("./generateMarkdown");
 
+// questions object for inquirer prompts
 const questions = [
     {
         type: 'input',
@@ -53,19 +54,19 @@ const questions = [
     },
 
 ];
-
+// prompt user with questions
 function init() {
     inquirer.prompt(questions).then(function (response) {
         const { username, title, description, license, installation, usage, contributing, tests, questions } = response;
         const inquirerArray = { username, title, description, license, installation, usage, contributing, tests, questions };
         const queryUrl = `https://api.github.com/users/${username}`;
-
+        // run github api
         axios
             .get(queryUrl)
             .then(function (respone) {
                 const data = respone.data;
                 const readmeData = generateMarkdown(data, inquirerArray);
-
+                // write data to readme file.
                 fs.writeFile("README.md", readmeData, err => {
                     if (err) {
                         return console.log(err);
