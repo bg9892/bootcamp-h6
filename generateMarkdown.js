@@ -1,3 +1,4 @@
+// function to generate markdown
 function generateMarkdown(data, inquirerArray) {
   let badge;
   if (data.email === null) {
